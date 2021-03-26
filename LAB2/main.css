@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+:root {
+  --horizontal-space: 25px;
+  --main-border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+.main-screen {
+  padding: 0px var(--horizontal-space);
+  margin: 10px var(--horizontal-space);
+}
+
+header{
+    font-family: "Chango", sans-serif;
+    padding-bottom: 0px;
+    border-bottom: var(--main-border);
+    margin-bottom: 10px;
+}
+h1{
+    color:crimson;
+}
+h5{
+    color:cornflowerblue;
+    margin: 0px;
+}
+nav{
+    font-family: "Dancing Script", sans-serif;
+    font-size: 25px;
+    background-color: yellowgreen;
+    border-color: firebrick;
+    text-align: right;
+}
+
+body {
+    color: #2e363e;
+    font-family: "Open Sans", sans-serif;
+}
+
+#signup-section{
+    background-color: snow;
+}
+
+#signup-block p{
+    margin: 20px 0px;
+    padding: 5px 0px;
+    border: var(--horizontal-space);
+    display:flex;
+}
+
+#signup-block-typeinput input{
+    height: 100%;
+    width : 100%;
+}
+
+#login-block p label input{
+    height: 200%;
+    width: 30%;
+}
+
+footer{
+    background-color: yellowgreen;
+    text-align: center;
+}

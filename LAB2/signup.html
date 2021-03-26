@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soaked Sock : Signup Page</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Soaked Sock!</h1>
+        <h3>Soaked Sock is the World Best E-Commerce Website to buy Socks!</h3>
+        <h5>We hope you could find just the right socks for you :)</h5>
+    </header>
+    <nav>
+        <a href="login.html">login</a>
+        <a href="signup.html">signup</a>
+    </nav>
+    <section id="signup-section">
+        <form method="post">
+            <div id="signup-block">
+                <div id="signup-block-typeinput">
+                    <p><label>Name : <input name="Name" type="text" size=12 placeholder="Write your name" autocomplete required autofocus></p>
+                    <p><label>User Id(At least 7 letters) : <input name="UserId" type="text" size=12 placeholder="Write your id" pattern=".{7,}" autocomplete required></label></p>
+                    <p><label>Password(At least 7 letters) : <input name="password" type="password" size=12 placeholder="Write your password" pattern=".{7,}" required></label></p>
+                    <p>
+                        <label>Foot size(Should be divided by 5) : 
+                            <input name="foot size" type="number" min='220' max='300' step='5' value="260" placeholder="Foot size(should end with 0,5mm)" pattern="^[+-]?[012]?\d:[012345]?[05]$">
+                        </label>
+                    </p>
+                </div>
+                <p>
+                    <label>Favorite Sock Type : 
+                        <br>
+                        <input name="sock-type" type="checkbox">Toe cover
+                        <br>
+                        <input name="sock-type" type="checkbox">Invisible sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Ankle sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Quarter sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Crew sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Over the carf sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Knee high sock
+                        <br>
+                        <input name="sock-type" type="checkbox">Thigh high sock
+                    </label>
+                </p>
+                <p><label>Favorite Sock Color: <input name="favorite sock color" type="color"></label></p>
+                <div id="signup-block-submit_clear">
+                    <input name="Submit" type="submit" value="submit ">
+                    <input name="Clear" type="reset" value="clear ">
+                </div>
+            </div>
+        </form>
+    </section>
+    <section>
+        <img
+    </section>
+    <footer>
+        <p>
+            For further information, please contact : (02)-000-0000
+        </p>
+    </footer>
+</body>
+</html>
