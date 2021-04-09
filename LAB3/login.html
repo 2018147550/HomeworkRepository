@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soaked Sock : Login Page</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Soaked Sock!</h1>
+        <h3>Soaked Sock is the World Best E-Commerce Website to buy Socks!</h3>
+        <h5>We hope you could find just the right socks for you :)</h5>
+    </header>
+    <nav>
+        <a href="login.html">login</a>
+        <a href="signup.html">signup</a>
+        <a href="index.html">main page</a>
+    </nav>
+    <section id="login-section">
+        <form method="post">
+            <div id="login-block">
+                <p><label>Name : <input name="Name" type="text" size=12 placeholder="Write your name" required autocomplete autofocus></p>
+                <p><label>User Id : <input name="UserId" type="text" size=12 placeholder="Write your id" pattern=".{7,}" autocomplete required></label></p>
+                <p><label>Password : <input name="password" type="password" size=12 placeholder="Write your password" pattern=".{7,}" required></label></p>
+                <p>
+                    <input name="Login" type="submit" value="login ">
+                </p>
+            </div>
+        </form>
+    </section>
+    <footer>
+        <p>
+            For further information, please contact : (02)-000-0000
+        </p>
+    </footer>
+</body>
+</html>
