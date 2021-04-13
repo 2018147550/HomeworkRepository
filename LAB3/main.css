@@ -109,6 +109,7 @@ body {
     column-gap:20px;
     column-rule-style:solid;
     column-rule-width:5px;
+    column-width: 10px;
     margin-top: 50px;
 }
 
