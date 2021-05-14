@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+:root {
+  --horizontal-space: 25px;
+  --main-border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+.main-screen {
+  padding: 0px var(--horizontal-space);
+  margin: 10px var(--horizontal-space);
+}
+
+header{
+    font-family: "Chango", sans-serif;
+    padding-bottom: 0px;
+    border-bottom: var(--main-border);
+    margin-bottom: 10px;
+}
+h1{
+    position: relative;
+    color:crimson;
+    animation: sliding linear 2s;
+}
+h3{
+    position: relative;
+    animation: sliding ease-in-out 2s;
+}
+h5{
+    position: relative;
+    color:cornflowerblue;
+    margin: 0px;
+    animation: sliding ease-out 2s;
+}
+
+@keyframes sliding{
+    0% {left: 1020px;}
+    100% {left: 0px;}
+}
+
+nav{
+    font-family: "Dancing Script", sans-serif;
+    font-size: 25px;
+    background-color: yellowgreen;
+    border-color: firebrick;
+    text-align: right;
+}
+
+body {
+    color: #2e363e;
+    font-family: "Open Sans", sans-serif;
+    max-width: 1020px;
+    margin: 0px auto;
+}
+
+#signup-section{
+    background-color: snow;
+}
+
+#signup-block p{
+    margin: 20px 0px;
+    padding: 5px 0px;
+    border: var(--horizontal-space);
+    display:flex;
+}
+
+#signup-block-typeinput input{
+    height: 100%;
+    width : 100%;
+}
+
+#login-block p label input{
+    height: 200%;
+    width: 30%;
+}
+
+#main-div{
+    display:flex;
+    border: var(--main-border);
+}
+
+#main-div-sidenav{
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    flex: 3;
+    padding: 10px;
+    margin: 0px;
+}
+
+#main-div-sidenav label, select{
+    display: block;
+}
+
+#main-div-sidenav div{
+    padding: 10px;
+}
+
+#main-div-sidenav button{
+    width: 100%;
+}
+
+#main-section{
+    padding-top: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    flex: 6;
+}
+
+#main-section > section{
+    width: 40%;
+    height: 300px;
+    position: relative;
+    margin: 5px;
+    display: block;
+}
+
+#main-section img{
+    height: 60%;
+    width: 60%;
+    position: absolute;
+    display: block;
+    bottom: 20%;
+    left:20%;
+}
+
+#main-section button{
+    display: block;
+    border-radius: 2px;
+    background-color: red;
+    width: 100%;
+}
+
+
+footer{
+    background-color: yellowgreen;
+    text-align: center;
+}

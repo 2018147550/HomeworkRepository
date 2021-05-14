@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soaked Sock : Main Page</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Soaked Sock!</h1>
+        <h3>Soaked Sock is the World Best E-Commerce Website to buy Socks!</h3>
+        <h5>We hope you could find just the right socks for you :)</h5>
+    </header>
+    <nav>
+        <a href="login.html">login</a>
+        <a href="signup.html">signup</a>
+        <a href="index.html">main page</a>
+    </nav>
+    <div id="main-div">
+        <aside id="main-div-sidenav">
+            <form>
+                <div>
+                    <label for="colors">What color do you want:</label>
+                    <select id="colors">
+                    <option selected>all</option>
+                    <option value="red">red</option>
+                    <option value="orange">orange</option>
+                    <option value="yellow">yellow</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="navy">navy</option>
+                    <option value="purple">purple</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sock-type">What type of sock do you want:</label>
+                    <input type="sock-type" id="sock-type" placeholder="ex)crew sock" value="">
+                </div>
+                <div id="choices">
+                    <p>all</p>
+
+                    <p>Available choices for sock types :</p>
+                    
+                    <p>over the carf sock</p>
+                    
+                    <p>thigh high sock</p>
+                    
+                    <p>crew sock</p>
+                    
+                    <p>knee high sock</p>
+                    
+                    <p>quarter sock</p>
+                </div>
+                <div>
+                    <button id="findfind">Find best sock!</button>
+                </div>
+            </form>
+        </aside>
+        <section id="main-section">
+            <!-- To be added within script-->
+        </section>
+    </div>
+
+    <footer>
+        <p>
+            For further information, please contact : (02)-000-0000
+        </p>
+    </footer>
+</body>
+<script>
+    let listofitems; // where we will store the fetched json data
+    // fetch json data
+    document.addEventListener('DOMContentLoaded',function(){
+        fetch('products.json').then((response)=>{
+            return response.json();
+        }).then((json)=>{
+            // time when you need to render new screen(calling new items)
+            listofitems=json["socks"];
+            init(listofitems);
+        }).catch((error)=>{
+            console.log("Your problem is: "+error.message);
+        });
+    });
+
+    // global variables to use
+    let classifyByColor={
+        "red":[],
+        "orange":[],
+        "yellow":[],
+        "green":[],
+        "blue":[],
+        "navy":[],
+        "purple":[],
+        "white":[],
+        "black":[],
+        "all":[]
+    }
+    
+    let classifyByType={
+        "over the carf sock":[],
+        "thigh high sock":[],
+        "crew sock":[],
+        "knee high sock":[],
+        "quarter sock":[],
+        "all":[]
+    }
+
+    const everyColor=["red","orange","yellow","green","blue","navy","purple","white","black","all"];
+    const everyType=["over the carf sock","thigh high sock","crew sock","knee high sock","quarter sock","all"];
+    let currentlyOnScreen=[];
+    let filteredItems=[];
+    let sizeOfListOfItems;
+    let sizeOfCurrentlyOnScreen;
+    let sizeOfFilteredItems;
+    let currentColorOfSock;
+    let currentTypeOfSock;
+    let timeToDetect=true;
+    
+    // Implementing callback function of infinite scrolling
+    window.onscroll= () =>{
+        if(sizeOfCurrentlyOnScreen<sizeOfFilteredItems){
+            if(timeToDetect){
+                // time when you need to render new screen(infinite scrolling)
+                if(window.innerHeight+window.scrollY>=document.body.offsetHeight){
+                    timeToDetect=false;
+                    newrender('scroll');
+
+                    let mainsec= document.getElementById('main-section');
+
+                    let newSection= document.createElement('section');
+                    let newparagraph = document.createElement('p');
+                    newparagraph.textContent="Loading... (Infinite Scroll)";
+                    
+                    newSection.appendChild(newparagraph);
+                    mainsec.appendChild(newSection);
+
+                    setTimeout(function(){
+                        mainsec.removeChild(mainsec.lastChild);
+                        timeToDetect=true;
+                    },1000);
+                }
+            }
+        }
+    };
+
+    // Implementing callback function of searching item
+    document.getElementById('findfind').onclick = updateFilteredItems;
+
+    function init(listofitems){
+        // initializing classifyByColor and classifyByType
+        for(color in classifyByColor){
+            matchlist = listofitems.filter(item=>item["color"]===color);
+            for(idx in matchlist){  
+                classifyByColor[color].push(matchlist[idx]);
+            }
+        }
+        for(typeofsock in classifyByType){
+            matchlist = listofitems.filter(item=>item["type"]===typeofsock);
+            for(idx in matchlist){  
+                classifyByType[typeofsock].push(matchlist[idx]);
+            }
+        }
+        for(itemidx in listofitems){
+            classifyByColor["all"].push(listofitems[itemidx]);
+            classifyByType["all"].push(listofitems[itemidx]);
+        }
+
+        // setting variable
+        sizeOfListOfItems=listofitems.length;
+        filteredItems=listofitems.slice();
+        sizeOfFilteredItems=filteredItems.length;
+        currentlyOnScreen = filteredItems.slice(0,8);
+        sizeOfCurrentlyOnScreen= 8;
+        currentColorOfSock="all";
+        currentTypeOfSock="all";
+        newrender("init");
+        console.log('init is finished!');
+    }
+    function addExplaination(e){
+        //e.preventDefault();
+        console.log('clicked!');
+        console.log(this);
+        console.log(this.getAttribute('turnonexplain'));
+
+        let changesec = this.parentElement;
+        if(this.getAttribute('turnonexplain')==="no"){
+            this.setAttribute('turnonexplain',"yes");
+            let changesecidx = Array.prototype.indexOf.call(changesec.parentElement.children,changesec);
+            
+            console.log(changesecidx);
+            
+            let explainp = document.createElement('p');
+            let minsizep = document.createElement('p');
+            let maxsizep = document.createElement('p');
+            explainp.textContent=currentlyOnScreen[changesecidx]['explain'];
+            minsizep.textContent="The minimum size available is:"+currentlyOnScreen[changesecidx]['min-size'];
+            maxsizep.textContent="The maximum size available is:"+currentlyOnScreen[changesecidx]['max-size'];
+            explainp.setAttribute('class',"tmpp");
+            minsizep.setAttribute('class',"tmpp");
+            maxsizep.setAttribute('class',"tmpp");
+            changesec.appendChild(explainp);
+            changesec.appendChild(minsizep);
+            changesec.appendChild(maxsizep);
+
+            changesec.firstChild.style.opacity=0;
+            changesec.childNodes[1].textContent="Click again to see image";
+        }
+        else{
+            this.setAttribute('turnonexplain',"no");
+            console.log(changesec);
+            // getting rid of tmpp
+            for(i=0;i<3;i++){
+                changesec.removeChild(changesec.childNodes[2]);
+                console.log(changesec);
+            }
+
+            changesec.firstChild.style.opacity=1;
+            changesec.childNodes[1].textContent="More Info...";
+        }
+    }
+
+    function updateFilteredItems(e){
+        e.preventDefault();
+        // update the filtered items
+        let colorOfSock = document.getElementById('colors').value;
+        let typeOfSock = document.getElementById("sock-type").value;
+        // we need to modify typeOfSock if nothing is given by user
+        if(typeOfSock===""){
+            typeOfSock="all";
+        }
+        // if user clicked button without anychange to current screen
+        if((colorOfSock===currentColorOfSock) && (typeOfSock===currentTypeOfSock)){
+            console.log('no change made')
+            return;
+        }
+        // if user clicked button with new criteria, we should fix what to be rendered on screen
+        else{
+            currentColorOfSock=colorOfSock;
+            currentTypeOfSock=typeOfSock;
+            // update currentlyOnScreen
+            filteredItems=[];
+            for(itemidx in classifyByColor[currentColorOfSock]){
+                let item= classifyByColor[currentColorOfSock][itemidx];
+                let itemname= item['name'];
+                for(itemidx2 in classifyByType[currentTypeOfSock]){
+                    let cmpitem= classifyByType[currentTypeOfSock][itemidx2];
+                    let cmpitemname= cmpitem['name'];
+                    if(itemname===cmpitemname){
+                        filteredItems.push(item);
+                    }
+                }
+            }
+        }
+        sizeOfFilteredItems=filteredItems.length;
+        currentlyOnScreen=[];
+        sizeOfCurrentlyOnScreen=0;
+        newrender("click");
+    }
+
+    function newrender(reason){
+        if(reason==="scroll"){ // case where newrender() was called due to onscroll
+        // we only need to add items to currentlyOnScreen if less items compared to filteredItems
+            if(sizeOfCurrentlyOnScreen<sizeOfFilteredItems){
+                
+                // updating newitem to currentlyOnScreen
+                let idxToAdd = sizeOfCurrentlyOnScreen;
+                let item= filteredItems[idxToAdd];
+                currentlyOnScreen.push(item);
+                // updating sizeOfCurrentlyOnScreen
+                sizeOfCurrentlyOnScreen +=1;
+
+                // adding item to main-section
+                let mainsec= document.getElementById('main-section');
+                let newSection = document.createElement('section');
+                let newImage = document.createElement('img');
+                console.log(item);
+                newImage.setAttribute('src',"images/"+item['filename']);
+                let newButton = document.createElement('button');
+                newButton.textContent="More Info...";
+                newButton.setAttribute('class','itemButton');
+                newButton.setAttribute("turnonexplain","no");
+                newButton.addEventListener('click',addExplaination);
+                newSection.appendChild(newImage);
+                newSection.appendChild(newButton);
+                mainsec.appendChild(newSection);
+            }
+            console.log('update screen by scroll');
+        }
+
+        // case where newrender() was called due to onclick
+        // we need to render just the newly updated items in colorOfSock and typeOfSock
+        else if(reason==="click"){
+            // first, delete all the items currently rendered on screen
+            let mainsec= document.getElementById('main-section');
+            while(mainsec.firstChild){
+                mainsec.removeChild(mainsec.firstChild);
+            }
+            // If there is at least one item that meets the filter by user
+            if(filteredItems.length!=0){
+                // second, add items to currentlyOnScreen from filteredItems
+                console.log(filteredItems);
+                console.log(currentlyOnScreen);
+                let initiallyDisplaynum = (sizeOfFilteredItems>8)?8:sizeOfFilteredItems;
+
+                for(itemidx in filteredItems){
+                    if(itemidx<initiallyDisplaynum){
+                        let item = filteredItems[itemidx];
+                        currentlyOnScreen.push(item);
+                        sizeOfCurrentlyOnScreen+=1;
+                        let newSection = document.createElement('section');
+                        let newImage = document.createElement('img');
+                        newImage.setAttribute('src',"images/"+item['filename']);
+                        let newButton = document.createElement('button');
+                        newButton.textContent="More Info...";
+                        newButton.setAttribute('class','itemButton');
+                        newButton.setAttribute("turnonexplain","no");
+                        newButton.addEventListener('click',addExplaination);
+                        newSection.appendChild(newImage);
+                        newSection.appendChild(newButton);
+                        mainsec.appendChild(newSection);
+                    }
+                }
+            }
+            // If there is no item that meets the condition of the filter by user
+            else{
+                let newSection= document.createElement('section');
+                let newparagraph = document.createElement('p');
+                newparagraph.textContent="We are sorry to inform you that there is no item meeting your filter.";
+                
+                newSection.appendChild(newparagraph);
+                mainsec.appendChild(newSection);
+            }
+            console.log('update screen by click');
+        }
+        // case where newrender() was called at init
+        else{ // reason === "init"
+            for(itemidx in currentlyOnScreen){
+                if(itemidx<sizeOfCurrentlyOnScreen){
+                    let item = currentlyOnScreen[itemidx];
+                    let mainsec= document.getElementById('main-section');
+
+                    // adding new Elements to mainsec
+                    let newSection = document.createElement('section');
+                    let newImage = document.createElement('img');
+                    newImage.setAttribute('src',"images/"+item['filename']);
+                    let newButton = document.createElement('button');
+                    newButton.textContent="More Info...";
+                    newButton.setAttribute('class','itemButton');
+                    newButton.setAttribute("turnonexplain","no");
+                    newButton.addEventListener('click',addExplaination);
+                    newSection.appendChild(newImage);
+                    newSection.appendChild(newButton);
+                    mainsec.appendChild(newSection);
+                }
+            }
+            console.log('update screen by init');
+        }
+    }
+
+
+
+</script>
+</html>

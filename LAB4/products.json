@@ -1,0 +1,194 @@
+{
+    "socks":[
+        {
+            "id":0,
+            "name":"bert_socks",
+            "color":"yellow",
+            "min-size": "240",
+            "max-size": "290",
+            "type": "over the carf sock",
+            "filename": "bert_socks.jpg",
+            "explain": "Not Bidirectional Encoder Representation Transformers. Just a plain BERT sock:)"
+        },
+        {
+            "id":1,
+            "name":"big_bird_socks",
+            "color":"yellow",
+            "min-size": "260",
+            "max-size": "300",
+            "type": "thigh high sock",
+            "filename": "big_bird_socks.png",
+            "explain": "A very strong and big sock, just like how big BigBird is!"
+        },
+        {
+            "id":2,
+            "name":"black_socks",
+            "color":"black",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "black_socks.jpg",
+            "explain":"Do you know that every human being is divided into those who like black socks or those who like white socks?"
+        },
+        {
+            "id":3,
+            "name":"red_socks",
+            "color":"red",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "red_socks.jpg",
+            "explain":"Red is one of the most enthusiastic color in the world, just like Spain!"
+        },
+        {
+            "id":4,
+            "name":"orange_socks",
+            "color":"orange",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "orange_socks.png",
+            "explain":"Orange is a very delightful color just like the taste of the fruit!"
+        },
+        {
+            "id":5,
+            "name":"yellow_socks",
+            "color":"yellow",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "yellow_socks.png",
+            "explain":"If BigBird or BERT looks too much, probably plain yellow is a good choice for you."
+        },
+        {
+            "id":6,
+            "name":"green_socks",
+            "color":"green",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "green_socks.png",
+            "explain":"Although the spectrum of green varies, Soaked Socks provides the most charming green color."
+        },
+        {
+            "id":7,
+            "name":"blue_socks",
+            "color":"blue",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "blue_socks.png",
+            "explain":"Do you like the ocean? This sock will remind you of the summer seas."
+        },
+        {
+            "id":8,
+            "name":"navy_socks",
+            "color":"navy",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "navy_socks.png",
+            "explain":"I bet that every men had a navy colored sock when they were young:)"
+        },
+        {
+            "id":9,
+            "name":"purple_socks",
+            "color":"purple",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "purple_socks.png",
+            "explain":"A very mania color. If you want to feel special just the right choice for you!"
+        },
+        {
+            "id":10,
+            "name":"white_socks",
+            "color":"white",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "crew sock",
+            "filename": "white_socks.jpg",
+            "explain":"The most general sock color, yet the best choice."
+        },
+        {
+            "id":11,
+            "name":"buddha_birthday_socks",
+            "color":"yellow",
+            "min-size": "250",
+            "max-size": "270",
+            "type": "over the carf sock",
+            "filename": "buddha_birthday_socks.png",
+            "explain":"If there's christmas socks, why wouldn't there be Buddha's?"
+        },
+        {
+            "id":12,
+            "name":"christmas_socks",
+            "color":"black",
+            "min-size": "230",
+            "max-size": "280",
+            "type": "knee high sock",
+            "filename": "christmas_socks.png",
+            "explain":"This one, you can also use to put candies inside at Chirstmas!"
+        },
+        {
+            "id":13,
+            "name":"cookiemonster_socks",
+            "color":"blue",
+            "min-size": "245",
+            "max-size": "275",
+            "type": "knee high sock",
+            "filename": "cookiemonster_socks.png",
+            "explain":"The character kids like the most in Seaseme Street!"
+        },
+        {
+            "id":14,
+            "name":"newyears_socks",
+            "color":"orange",
+            "min-size": "260",
+            "max-size": "290",
+            "type": "thigh high sock",
+            "filename": "newyears_socks.jpg",
+            "explain":"Happy new years! Why don't you celebrate your new years with these socks?"
+        },
+        {
+            "id":15,
+            "name":"elmo_socks",
+            "color":"red",
+            "min-size": "230",
+            "max-size": "260",
+            "type": "quarter sock",
+            "filename": "elmo_socks.jpeg",
+            "explain":"Not ELMo Representations to find contextual meaning, but just plain good old ELMO socks for kids:)"
+        },
+        {
+            "id":16,
+            "name":"ernie_socks",
+            "color":"orange",
+            "min-size": "245",
+            "max-size": "275",
+            "type": "crew sock",
+            "filename": "ernie_socks.jpeg",
+            "explain":"The one who's always next to BERT. Nice colors for socks."
+        },
+        {
+            "id":17,
+            "name":"rainbow_socks",
+            "color":"all",
+            "min-size": "245",
+            "max-size": "275",
+            "type": "over the carf sock",
+            "filename": "rainbow_socks.jpeg",
+            "explain":"I'd bet every men/women would have a crush on you if you go out with these ones on your date:)"
+        },
+        {
+            "id":18,
+            "name":"thanksgiving_socks",
+            "color":"orange",
+            "min-size": "270",
+            "max-size": "290",
+            "type": "knee high sock",
+            "filename": "thanksgiving_socks.jpg",
+            "explain":"Ready for your roasted turkey? With these socks on, you woould have a more tasteable dinner party!"
+        }
+    ]
+}
